@@ -1171,7 +1171,7 @@ pre .javascript .function {
 }
 .sidebar-inner {
   color: #999;
-  padding: 18px 10px;
+  padding: 24px 10px;
   text-align: center;
 }
 .cc-license {
@@ -1194,7 +1194,6 @@ pre .javascript .function {
   margin: 0 auto;
   max-width: 120px;
   padding: 2px;
-  border-radius: 50%;
 }
 .site-author-image {
   transition: transform 1s ease-out;
@@ -1231,7 +1230,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #53bffa;
+  background: #ff1f5e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
