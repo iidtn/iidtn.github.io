@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-31 22:28:43 / 修改时间：22:52:23" itemprop="dateCreated datePublished" datetime="2021-10-31T22:28:43+08:00">2021-10-31</time>
+              <time title="创建时间：2021-10-31 22:28:43" itemprop="dateCreated datePublished" datetime="2021-10-31T22:28:43+08:00">2021-10-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-01 07:31:55" itemprop="dateModified" datetime="2021-11-01T07:31:55+08:00">2021-11-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -258,17 +264,15 @@
 右边的鞋印已黄昏了<br><br>
 六月原是一本很感伤的书<br><br>
 结局如此之凄美<br><br>
-——落日西沉<br><br>
-我依然凝视<br><br>
-你眼中展示的一片纯白<br><br>
-我跪向你向昨日向那朵美了整个下午的云<br><br>
-海哟，为何在众灯之中<br><br>
-独点亮那一盏茫然<br><br>
-还能抓住什么呢？<br><br>
-你那曾被称为雪的眸子<br><br>
-现有人叫做<br><br>
-烟</p>
-
+——落日西沉<br><br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/31/%E7%83%9F%E4%B9%8B%E5%A4%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -451,7 +455,10 @@
 </div>
 
 
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
       </div>
 
       
@@ -578,6 +585,23 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 
 </body>
 </html>
