@@ -4,22 +4,22 @@
     <title>烟之外</title>
     <url>/2021/10/31/%E7%83%9F%E4%B9%8B%E5%A4%96/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p align="right">洛夫</p>
-<p align="center">在涛声中呼唤你的名字而你的名字已在千帆之外<br><br>
-潮来潮去<br><br>
-左边的鞋印才下午<br><br>
-右边的鞋印已黄昏了<br><br>
-六月原是一本很感伤的书<br><br>
-结局如此之凄美<br><br>
+<p align="center">在涛声中呼唤你的名字而你的名字已在千帆之外<br>
+潮来潮去<br>
+左边的鞋印才下午<br>
+右边的鞋印已黄昏了<br>
+六月原是一本很感伤的书<br>
+结局如此之凄美<br>
 ——落日西沉<br><br>
     <span id="more"></span>
-我依然凝视<br><br>
-你眼中展示的一片纯白<br><br>
-我跪向你向昨日向那朵美了整个下午的云<br><br>
-海哟，为何在众灯之中<br><br>
-独点亮那一盏茫然<br><br>
-还能抓住什么呢？<br><br>
-你那曾被称为雪的眸子<br><br>
-现有人叫做<br><br>
+我依然凝视<br>
+你眼中展示的一片纯白<br>
+我跪向你向昨日向那朵美了整个下午的云<br>
+海哟，为何在众灯之中<br>
+独点亮那一盏茫然<br>
+还能抓住什么呢？<br>
+你那曾被称为雪的眸子<br>
+现有人叫做<br>
 烟</p>
 ]]></content>
       <categories>
@@ -30,9 +30,11 @@
       </tags>
   </entry>
   <entry>
-    <title>python爬虫demo</title>
-    <url>/2021/10/30/python%E7%88%AC%E8%99%ABdemo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># requests获取url网页</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPage</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url)  <span class="comment"># 获取页面</span></span><br><span class="line">        r.raise_for_status()  <span class="comment"># 判断连接状态</span></span><br><span class="line">        r.encoding = r.apparent_encoding  <span class="comment"># 避免编码问题</span></span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;产生异常&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># BeautifulSoup解析获取的页面，可通过re等爬取需要的内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getLink</span>(<span class="params">html</span>):</span></span><br><span class="line">    links = []</span><br><span class="line">    soup = BeautifulSoup(html)</span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> soup.find_all(<span class="string">&quot;&quot;</span>):  <span class="comment"># 可用re模块获取</span></span><br><span class="line">        links.append(link)</span><br><span class="line">    <span class="keyword">return</span> links</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">link</span>):</span></span><br><span class="line">    path = <span class="string">&quot;&quot;</span></span><br><span class="line">    file = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.mkdir(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(requests.get(link).content)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;文件下载错误&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    url = <span class="string">&quot;&quot;</span></span><br><span class="line">    page = getPage(url)</span><br><span class="line">    links = getLink(page)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> links:</span><br><span class="line">        download(i)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__ main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>Pythondemo</title>
+    <url>/2021/10/30/python%20demo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><center>爬虫示例</center>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># requests获取url网页</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPage</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url)  <span class="comment"># 获取页面</span></span><br><span class="line">        r.raise_for_status()  <span class="comment"># 判断连接状态</span></span><br><span class="line">        r.encoding = r.apparent_encoding  <span class="comment"># 避免编码问题</span></span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;产生异常&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># BeautifulSoup解析获取的页面，可通过re等爬取需要的内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getLink</span>(<span class="params">html</span>):</span></span><br><span class="line">    links = []</span><br><span class="line">    soup = BeautifulSoup(html)</span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> soup.find_all(<span class="string">&quot;&quot;</span>):  <span class="comment"># 可用re模块获取</span></span><br><span class="line">        links.append(link)</span><br><span class="line">    <span class="keyword">return</span> links</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>(<span class="params">link</span>):</span></span><br><span class="line">    path = <span class="string">&quot;&quot;</span></span><br><span class="line">    file = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.mkdir(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(requests.get(link).content)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;文件下载错误&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    url = <span class="string">&quot;&quot;</span></span><br><span class="line">    page = getPage(url)</span><br><span class="line">    links = getLink(page)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> links:</span><br><span class="line">        download(i)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__ main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 ]]></content>
       <categories>
         <category>python</category>
